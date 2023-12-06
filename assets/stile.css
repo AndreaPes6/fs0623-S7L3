@@ -1,0 +1,88 @@
+body {
+    margin-bottom: 5rem;
+    background-color: antiquewhite;
+}
+
+h1 {
+    font-size: 6rem;
+    letter-spacing: 0.1rem;
+    font-weight: 900;
+    text-align: center;
+    color: rgb(230, 33, 33);
+}
+
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 5rem;
+    }
+}
+
+#shopping-cart {
+    position: fixed;
+    top: 37%;
+    background-color: white;
+    z-index: 1;
+    max-width: 4rem;
+    max-height: 4rem;
+    transform: translateY(-50%);
+    transition: all 0.8s 1s;
+    box-shadow: -1.8rem 0 3.7rem -0.1rem rgb(0 0 0 / 30%);
+    border-top-right-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+#shopping-cart::before {
+    content: url(/assets/shopLogo.svg);
+    position: sticky;
+    top: 0.8rem;
+    left: 0.2rem;
+    margin: auto;
+    transition: all 0.25s 1.5s;
+}
+
+#shopping-cart>h3 {
+    margin-top: -1.5rem;
+}
+
+#shopping-cart> :where(h3, div) {
+    opacity: 0;
+    transition: all 0.6s 1s;
+    pointer-events: none;
+}
+
+#shopping-cart:hover> :where(h3, div) {
+    opacity: 1;
+    pointer-events: initial;
+    transition: all 0.4s 0.2s;
+}
+
+#shopping-cart:hover {
+    max-width: 25rem;
+    max-height: 70vh;
+    padding: 2rem;
+    overflow-y: auto;
+    transition: all 0.4s;
+}
+
+#shopping-cart:hover::before {
+    opacity: 0;
+    transition: all 0.000005s;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+
+.card-title {
+    display: -webkit-box;
+    overflow: hidden;
+}
+
+.selected {
+    border: 0.15rem solid rgb(230, 33, 33);
+}
